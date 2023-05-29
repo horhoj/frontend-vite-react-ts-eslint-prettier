@@ -1,0 +1,22 @@
+.Spinner {
+  z-index: 4000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: progressBar .8s linear 0s infinite;
+  background: lightskyblue linear-gradient(315deg, transparent, transparent 33%, rgba(0, 0, 0, .30) 33%, rgba(0, 0, 0, .30) 66%, transparent 66%, transparent) repeat-x scroll;
+  background-size: 16px 8px;
+  bottom: 0;
+  height: 8px;
+  margin-bottom: -5px;
+  width: 100%;
+}
+
+@keyframes progressBar {
+  0% {
+    background-position: 0 0
+  }
+  to {
+    background-position: 64px 0
+  }
+}
