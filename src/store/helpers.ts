@@ -1,27 +1,10 @@
-import { AxiosResponse, AxiosError } from 'axios';
-import { ActionReducerMapBuilder, AsyncThunk } from '@reduxjs/toolkit';
+import { ActionReducerMapBuilder, AsyncThunk, Draft } from '@reduxjs/toolkit';
 
-export interface RequestError {
-  responseData: AxiosResponse | null;
-  errorMsg: string;
-}
-
-export interface RequestSliceStateProperty<T = unknown> {
+export interface RequestSliceStateProperty<T = unknown, E = unknown> {
   data: T | null;
-  error: RequestError | null;
+  error: E | null;
   isLoading: boolean;
 }
-
-export const getRequestErrorData = (
-  e: unknown,
-  payload: unknown,
-): RequestError => {
-  const payloadMsg = String(payload);
-  return {
-    responseData: (e as AxiosError)?.response || null,
-    errorMsg: payload ? payloadMsg : (e as Error)?.message,
-  };
-};
 
 export const makeRequestSliceStateProperty = <T>(
   initialValues: Partial<RequestSliceStateProperty<T>> = {},
@@ -32,10 +15,15 @@ export const makeRequestSliceStateProperty = <T>(
   ...initialValues,
 });
 
+type RequestSliceStatePropertyList<IS> = {
+  [K in keyof IS as IS[K] extends RequestSliceStateProperty ? K : never]: IS[K];
+};
+
 export const makeRequestCaseToBuilder = <IS>(
+  // builder: ActionReducerMapBuilder<RequestSliceStatePropertyList<IS>>,
   builder: ActionReducerMapBuilder<any>,
   asyncThunk: AsyncThunk<any, any, any>,
-  requestPropertyName: keyof IS,
+  requestPropertyName: keyof Draft<RequestSliceStatePropertyList<IS>>,
 ): void => {
   builder
     .addCase(asyncThunk.pending, (state) => {
@@ -46,9 +34,9 @@ export const makeRequestCaseToBuilder = <IS>(
       state[requestPropertyName].isLoading = false;
       state[requestPropertyName].data = action.payload;
     })
-    .addCase(asyncThunk.rejected, (state, { error, payload }) => {
+    .addCase(asyncThunk.rejected, (state, action) => {
       state[requestPropertyName].isLoading = false;
       state[requestPropertyName].data = null;
-      state[requestPropertyName].error = getRequestErrorData(error, payload);
+      state[requestPropertyName].error = action.payload || action.error;
     });
 };

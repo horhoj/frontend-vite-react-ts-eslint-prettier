@@ -1,5 +1,10 @@
+import { MainView } from '~/features/main/components/MainView';
 import { DefaultLayout } from '~/ui/DefaultLayout';
 
 export function MainPage() {
-  return <DefaultLayout>MainPage</DefaultLayout>;
+  return (
+    <DefaultLayout>
+      <MainView />
+    </DefaultLayout>
+  );
 }

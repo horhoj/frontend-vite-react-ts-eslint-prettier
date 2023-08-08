@@ -1,7 +1,7 @@
 const types = {
   ERROR: 'error',
   WARN: 'warn',
-  OFF: 'off',
+  OFF: 'off'
 };
 
 module.exports = {
@@ -11,28 +11,29 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:import/typescript',
-    'prettier',
+    'prettier'
   ],
   plugins: ['@typescript-eslint', 'import'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   env: {
     browser: true,
     es6: true,
-    node: true,
+    node: true
   },
   settings: {
     react: {
-      version: 'detect',
+      version: 'detect'
     },
-    'import/resolver': 'webpack',
+    'import/resolver': 'webpack'
   },
   rules: {
+
     'no-console': types.WARN,
     'no-template-curly-in-string': types.WARN,
     'require-atomic-updates': types.ERROR,
@@ -87,27 +88,28 @@ module.exports = {
         types: {
           Number: {
             message: 'Use number instead',
-            fixWith: 'number',
+            fixWith: 'number'
           },
           String: {
             message: 'Use string instead',
-            fixWith: 'string',
+            fixWith: 'string'
           },
           Boolean: {
             message: 'Use boolean instead',
-            fixWith: 'boolean',
+            fixWith: 'boolean'
           },
           Symbol: {
             message: 'Use symbol instead',
-            fixWith: 'symbol',
+            fixWith: 'symbol'
           },
           Object: {
             message: 'Use object instead',
-            fixWith: 'object',
-          },
-        },
-      },
+            fixWith: 'object'
+          }
+        }
+      }
     ],
+    '@typescript-eslint/no-unused-vars': [types.WARN],
     '@typescript-eslint/explicit-member-accessibility': [types.ERROR],
     '@typescript-eslint/func-call-spacing': [types.ERROR, 'never'],
     '@typescript-eslint/no-for-in-array': types.ERROR,
@@ -120,7 +122,7 @@ module.exports = {
     '@typescript-eslint/no-empty-interface': types.OFF,
     '@typescript-eslint/no-extraneous-class': types.OFF,
     '@typescript-eslint/explicit-function-return-type': types.OFF,
-    '@typescript-eslint/no-empty-function': types.OFF,
+    '@typescript-eslint/no-empty-function': types.OFF
     // 'react/button-has-type': [
     //   types.ERROR,
     //   {
@@ -129,5 +131,5 @@ module.exports = {
     //     reset: true,
     //   },
     // ],
-  },
+  }
 };

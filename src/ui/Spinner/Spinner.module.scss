@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   animation: progressBar .8s linear 0s infinite;
-  background: lightskyblue linear-gradient(315deg, transparent, transparent 33%, rgba(0, 0, 0, .30) 33%, rgba(0, 0, 0, .30) 66%, transparent 66%, transparent) repeat-x scroll;
+  background: lightgray linear-gradient(315deg, transparent, transparent 33%, rgba(0, 0, 0, .30) 33%, rgba(0, 0, 0, .30) 66%, transparent 66%, transparent) repeat-x scroll;
   background-size: 16px 8px;
   bottom: 0;
   height: 8px;
@@ -19,4 +19,27 @@
   to {
     background-position: 64px 0
   }
+}
+
+
+.enter {
+  opacity: 0;
+}
+
+.enterActive {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.exit {
+  opacity: 1;
+}
+
+.exitActive {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.hideOverflow {
+  overflow: hidden;
 }
