@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { App } from './App';
 import { IS_REACT_STRICT_MODE } from '~/config/app';
+import { AppContainer } from '~/features/app/containers/AppContainer';
 import { store } from '~/store/store';
 import '~/styles/index.scss';
 
@@ -30,7 +30,7 @@ if (container) {
     <ReactStrictModeWrapper isStrictModeEnable={IS_REACT_STRICT_MODE}>
       <Provider store={store}>
         <BrowserRouter>
-          <App />
+          <AppContainer />
         </BrowserRouter>
       </Provider>
     </ReactStrictModeWrapper>,

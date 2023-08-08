@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { routeList, routeNameList } from './routeList';
+import { routeList } from './routeList';
 import { getRoutePath } from './helpers';
 import { RedirectExecutor } from './RedirectExecutor';
 import { getUUID } from '~/utils/getUUID';
@@ -16,12 +16,11 @@ export const Router: FC = () => {
           element={<Navigate to={getRoutePath('main')} />}
           key={MAIN_UNIQ_KEY}
         />
-        {routeNameList.map((routeName) => {
-          const route = routeList[routeName];
+        {routeList.map((route) => {
           return (
             <Route
               path={route.path}
-              key={routeName}
+              key={route.id}
               element={<route.component />}
             />
           );

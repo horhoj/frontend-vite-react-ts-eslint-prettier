@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppRedirectUrl } from './types';
-
-export interface InitialState {
-  redirectUrl: AppRedirectUrl | null;
-}
+import { InitialState } from '~/features/app/store/types';
 
 const initialState: InitialState = {
   redirectUrl: null,

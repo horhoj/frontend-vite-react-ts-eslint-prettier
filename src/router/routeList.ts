@@ -1,23 +1,19 @@
-import { FC } from 'react';
-import { MainPage } from '~/pages/MainPage';
-import { Page404 } from '~/pages/Error404Page';
+import { MainPage } from '~/features/main/pages/MainPage';
+import { Page404 } from '~/features/app/pages/Error404Page';
+import { RouteItem } from '~/router/types';
+import { getUUID } from '~/utils/getUUID';
 
-interface RouteItem {
-  path: string;
-  component: FC;
-}
-
-export const routeNameList = ['main', 'error404'] as const;
-
-export type RouteNameList = (typeof routeNameList)[number];
-
-export const routeList: Record<RouteNameList, RouteItem> = {
-  main: {
+export const routeList = [
+  {
+    id: getUUID(),
+    name: 'main',
     path: '/main',
     component: MainPage,
   },
-  error404: {
+  {
+    id: getUUID(),
+    name: 'error404',
     path: '*',
     component: Page404,
   },
-};
+] as const satisfies readonly RouteItem[];

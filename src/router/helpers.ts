@@ -1,15 +1,18 @@
 import { generatePath } from 'react-router-dom';
-import { routeList, RouteNameList } from './routeList';
+import { routeList } from './routeList';
+import { RouteNameList } from '~/router/types';
 
 export const getRoutePath = (
   routeName: RouteNameList,
   id: string | null = null,
 ): string => {
-  const path = routeList[routeName].path;
+  const route = routeList.find((item) => item.name === routeName);
 
   if (!id) {
-    return path;
+    return route?.path ?? '';
   }
 
-  return generatePath(path, { id });
+  const path = route?.path ?? '';
+
+  return generatePath(String(path), { id });
 };

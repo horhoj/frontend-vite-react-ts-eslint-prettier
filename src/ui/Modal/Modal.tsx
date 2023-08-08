@@ -1,7 +1,7 @@
-import { FC, ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './Modal.module.scss';
-import { Portal } from '~/components/Portal';
+import { Portal } from '~/ui/Portal';
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,7 +9,7 @@ interface ModalProps {
   children?: ReactNode;
 }
 
-export const Modal: FC<ModalProps> = ({ children, isOpen, onClose }) => {
+export function Modal({ children, isOpen, onClose }: ModalProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,10 +34,10 @@ export const Modal: FC<ModalProps> = ({ children, isOpen, onClose }) => {
           exitActive: styles.exitActive,
         }}
       >
-        <div className={styles.wrap} onClick={onClose} ref={ref}>
+        <div className={styles.Modal} onClick={onClose} ref={ref}>
           {children}
         </div>
       </CSSTransition>
     </Portal>
   );
-};
+}
