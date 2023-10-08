@@ -1,11 +1,3 @@
-import { RequestSliceStateProperty } from '~/store/helpers';
-
-export const SLICE_NAME = 'todoList';
-
-export interface TodoListSliceInitialState {
-  fetchTodoListRequest: RequestSliceStateProperty<FetchTodoListResponse>;
-}
-
 export interface FetchTodoListParams {
   skip: number;
   limit: number;

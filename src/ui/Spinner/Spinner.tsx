@@ -1,7 +1,7 @@
 import { CSSTransition } from 'react-transition-group';
 import { useRef } from 'react';
+import { Portal } from '../Portal';
 import styles from './Spinner.module.scss';
-import { Portal } from '~/ui/Portal';
 
 interface SpinnerProps {
   isShow: boolean;

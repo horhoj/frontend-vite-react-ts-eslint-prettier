@@ -6,6 +6,7 @@ interface LocalSpinnerProps {
   children: ReactNode;
   isEffectEnabled: boolean;
 }
+
 export function LocalSpinner({ isEffectEnabled, children }: LocalSpinnerProps) {
   const rootClasses = classNames(
     styles.LocalSpinner,

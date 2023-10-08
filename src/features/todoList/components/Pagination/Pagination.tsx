@@ -1,5 +1,5 @@
+import { FetchTodoListActions } from '../../types';
 import styles from './Pagination.module.scss';
-import { FetchTodoListActions } from '~/features/todoList/types';
 import { Button } from '~/ui/Button';
 
 interface PaginationProps {

@@ -1,5 +1,5 @@
+import { Todo } from '../../types';
 import styles from './TodoCard.module.scss';
-import { Todo } from '~/features/todoList/types';
 
 interface TodoCardProps {
   todo: Todo;

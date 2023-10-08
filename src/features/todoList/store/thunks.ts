@@ -1,10 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { todoListApi } from '~/features/todoList/api';
-import {
-  FetchTodoListActions,
-  FetchTodoListParams,
-  SLICE_NAME,
-} from '~/features/todoList/types';
+
+import { FetchTodoListActions, FetchTodoListParams } from '../types';
+import { todoListApi } from '../api';
+import { SLICE_NAME } from './const';
 import { RootState } from '~/store/types';
 
 export const fetchTodoListThunk = createAsyncThunk(

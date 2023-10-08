@@ -1,29 +1,30 @@
 import { ActionReducerMapBuilder, AsyncThunk, Draft } from '@reduxjs/toolkit';
 
-export interface RequestSliceStateProperty<T = unknown, E = unknown> {
+export interface RequestStateProperty<T = unknown, E = unknown> {
   data: T | null;
   error: E | null;
   isLoading: boolean;
 }
 
-export const makeRequestSliceStateProperty = <T>(
-  initialValues: Partial<RequestSliceStateProperty<T>> = {},
-): RequestSliceStateProperty<T> => ({
+export const makeRequestStateProperty = <T, E>(
+  initialValues: Partial<RequestStateProperty<T, E>> = {},
+): RequestStateProperty<T, E> => ({
   data: null,
   error: null,
   isLoading: false,
   ...initialValues,
 });
 
-type RequestSliceStatePropertyList<IS> = {
-  [K in keyof IS as IS[K] extends RequestSliceStateProperty ? K : never]: IS[K];
+export type RequestList<I> = {
+  [K in keyof I as I[K] extends RequestStateProperty ? K : never]: I[K];
 };
 
-export const makeRequestCaseToBuilder = <IS>(
-  // builder: ActionReducerMapBuilder<RequestSliceStatePropertyList<IS>>,
-  builder: ActionReducerMapBuilder<any>,
+export const makeRequestExtraReducer = <
+  IS extends Record<string, RequestStateProperty>,
+>(
+  builder: ActionReducerMapBuilder<IS>,
   asyncThunk: AsyncThunk<any, any, any>,
-  requestPropertyName: keyof Draft<RequestSliceStatePropertyList<IS>>,
+  requestPropertyName: keyof Draft<IS>,
 ): void => {
   builder
     .addCase(asyncThunk.pending, (state) => {

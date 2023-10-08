@@ -1,7 +1,7 @@
-import { DefaultLayout } from '~/ui/DefaultLayout';
+import { SpinnerContainer } from '../SpinnerContainer';
+import { AppNavContainer } from '../AppNavContainer';
 import { Router } from '~/router';
-import { SpinnerContainer } from '~/features/app/containers/SpinnerContainer';
-import { AppNavContainer } from '~/features/appNav/containers/AppNavContainer';
+import { DefaultLayout } from '~/ui/DefaultLayout';
 
 export function AppContainer() {
   return (

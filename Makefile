@@ -39,7 +39,7 @@ lint-check:
 lint-fix:
 	docker-compose exec --user $(shell id -u):$(shell id -g)  node sh -c "npm run lint-fix"
 
-lint-ts:
+type-check:
 	docker-compose exec --user $(shell id -u):$(shell id -g)  node sh -c "npm run type-check"
 
 test:

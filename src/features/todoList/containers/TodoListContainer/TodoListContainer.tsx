@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { Pagination } from '~/features/todoList/components/Pagination';
-import { TodoList } from '~/features/todoList/components/TodoList';
-import { todoListSlice } from '~/features/todoList/store';
-import { FetchTodoListActions } from '~/features/todoList/types';
-import { useAppDispatch, useAppSelector } from '~/store/hooks';
+import { todoListSlice } from '../../store';
+import { FetchTodoListActions } from '../../types';
+import { Pagination } from '../../components/Pagination';
+import { TodoList } from '../../components/TodoList';
 import { LocalSpinner } from '~/ui/LocalSpinner';
+import { useAppDispatch, useAppSelector } from '~/store/hooks';
 
 export function TodoListContainer() {
   const dispatch = useAppDispatch();

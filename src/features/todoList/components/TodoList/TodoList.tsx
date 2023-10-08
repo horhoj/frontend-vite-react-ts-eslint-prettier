@@ -1,6 +1,6 @@
+import { Todo } from '../../types';
+import { TodoCard } from '../TodoCard';
 import styles from './TodoList.module.scss';
-import { TodoCard } from '~/features/todoList/components/TodoCard';
-import { Todo } from '~/features/todoList/types';
 
 interface TodoListProps {
   todoList: Todo[];
