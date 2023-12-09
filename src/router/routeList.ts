@@ -1,7 +1,7 @@
 import { RouteItem } from './types';
 import { Page404 } from '~/app/pages/Error404Page';
-import { MainPage } from '~/app/pages/MainPage';
-import { TodoListPage } from '~/features/todoList/pages/TodoListPage';
+import { AboutPage } from '~/features/about/pages/AboutPage';
+import { MainPage } from '~/features/main/pages/MainPage';
 import { getUUID } from '~/utils/getUUID';
 
 export const routeList = [
@@ -14,10 +14,10 @@ export const routeList = [
   },
   {
     id: getUUID(),
-    name: 'todoList',
-    path: '/todo-list',
-    component: TodoListPage,
+    name: 'about',
+    component: AboutPage,
     inMenu: true,
+    path: '/about',
   },
   {
     id: getUUID(),
