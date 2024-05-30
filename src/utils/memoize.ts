@@ -1,6 +1,4 @@
-export const memoize = <P extends unknown[], R>(
-  cb: (...args: P) => Promise<R>,
-) => {
+export const memoize = <P extends unknown[], R>(cb: (...args: P) => Promise<R>) => {
   const getHash = (...args: P) => JSON.stringify(args);
   const data: Record<string, R> = {};
 

@@ -25,9 +25,12 @@
   },
   "include": [
     "src",
-    ".eslintrc.js",
+    ".eslintrc.cjs",
+    "tests/**/*.test.tsx",
+    "tests/**/*.test.ts",
+    "vitest.config.ts",
     "vite.config.ts",
-    "tests/*"
+    "tests/setup.ts"
   ],
   "references": [
     {

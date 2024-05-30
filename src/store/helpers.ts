@@ -19,9 +19,7 @@ export type RequestList<I> = {
   [K in keyof I as I[K] extends RequestStateProperty ? K : never]: I[K];
 };
 
-export const makeRequestExtraReducer = <
-  IS extends Record<string, RequestStateProperty>,
->(
+export const makeRequestExtraReducer = <IS extends Record<string, RequestStateProperty>>(
   builder: ActionReducerMapBuilder<IS>,
   asyncThunk: AsyncThunk<any, any, any>,
   requestPropertyName: keyof Draft<IS>,

@@ -24,14 +24,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [
-          rp.FLUSH,
-          rp.REHYDRATE,
-          rp.PAUSE,
-          rp.PERSIST,
-          rp.PURGE,
-          rp.REGISTER,
-        ],
+        ignoredActions: [rp.FLUSH, rp.REHYDRATE, rp.PAUSE, rp.PERSIST, rp.PURGE, rp.REGISTER],
       },
     }),
 });
