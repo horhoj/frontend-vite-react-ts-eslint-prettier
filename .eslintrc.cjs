@@ -33,6 +33,21 @@ module.exports = {
     'import/resolver': 'webpack',
   },
   rules: {
+    'spaced-comment': [
+      'error',
+      'always',
+      {
+        line: {
+          markers: ['/'],
+          exceptions: ['-', '+'],
+        },
+        block: {
+          markers: ['!'],
+          exceptions: ['*'],
+          balanced: true,
+        },
+      },
+    ],
     'no-console': types.WARN,
     'no-template-curly-in-string': types.WARN,
     'require-atomic-updates': types.ERROR,

@@ -40,6 +40,9 @@ docker-test:
 check:
 	npm run type-check && npm run lint-check
 
+check-full:
+	npm run build && npm run type-check && npm run lint-check
+
 test:
 	npm run test
 
