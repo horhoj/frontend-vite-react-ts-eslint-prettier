@@ -21,7 +21,7 @@ export type RequestList<I> = {
 
 export const makeRequestExtraReducer = <IS extends Record<string, RequestStateProperty>>(
   builder: ActionReducerMapBuilder<IS>,
-  asyncThunk: AsyncThunk<any, any, any>,
+  asyncThunk: AsyncThunk<keyof Draft<IS>, any, any>,
   requestPropertyName: keyof Draft<IS>,
 ): void => {
   builder
