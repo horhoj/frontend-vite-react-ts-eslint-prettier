@@ -37,8 +37,11 @@ docker-type-check:
 docker-test:
 	docker compose exec --user $(shell id -u):$(shell id -g)  node sh -c "npm run test"
 
-check:
+lint:
 	npm run type-check && npm run lint-check
+
+type-check:
+	npm run type-check 
 
 check-full:
 	npm run build && npm run type-check && npm run lint-check
