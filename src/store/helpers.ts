@@ -21,13 +21,17 @@ export type RequestList<I> = {
 
 export const makeRequestExtraReducer = <IS extends Record<string, RequestStateProperty>>(
   builder: ActionReducerMapBuilder<IS>,
-  asyncThunk: AsyncThunk<keyof Draft<IS>, any, any>,
+  asyncThunk: AsyncThunk<any, any, any>,
   requestPropertyName: keyof Draft<IS>,
+  isDataClear?: boolean,
 ): void => {
   builder
     .addCase(asyncThunk.pending, (state) => {
       state[requestPropertyName].isLoading = true;
       state[requestPropertyName].error = null;
+      if (isDataClear) {
+        state[requestPropertyName].data = null;
+      }
     })
     .addCase(asyncThunk.fulfilled, (state, action) => {
       state[requestPropertyName].isLoading = false;
