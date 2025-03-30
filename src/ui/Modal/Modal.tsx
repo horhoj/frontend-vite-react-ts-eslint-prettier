@@ -34,8 +34,10 @@ export function Modal({ children, isOpen, onClose }: ModalProps) {
           exitActive: styles.exitActive,
         }}
       >
-        <div className={styles.Modal} onClick={onClose} ref={ref}>
-          {children}
+        <div className={styles.Modal} onMouseDown={onClose} ref={ref}>
+          <div onMouseDown={(e) => e.stopPropagation()} className={styles.contentWrapper}>
+            {children}
+          </div>
         </div>
       </CSSTransition>
     </Portal>
