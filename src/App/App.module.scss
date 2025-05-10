@@ -1,11 +1,20 @@
 .App {
-  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  width: 100%;
   padding: 15px;
   background-color: white;
+  min-height: 100vh;
+
+}
+
+.selectWrapper {
+  padding: 50px;
+  width: 400px;
+  display: flex;
+  align-items: flex-end;
+  gap: 100px;
 }

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Button } from '~/ui/Button';
+import { Button } from '../../../src/ui/components/Button';
 
 describe('Button component tests', () => {
   it('correct render', () => {

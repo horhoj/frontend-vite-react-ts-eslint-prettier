@@ -1,0 +1,64 @@
+.Select {
+  position: relative;
+  min-width: 200px;
+
+  &__element {
+    height: 40px;
+    width: 100%;
+
+    &Title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      padding: 0 10px;
+    }
+  }
+
+  &__dropdownContent {
+    border: 1px solid #333;
+    width: 100%;
+    max-height: 140px;
+    overflow-y: auto;
+    outline: none;
+    position: absolute;
+    top: 50px;
+    bottom: unset;
+
+    &.up {
+      top: unset;
+      bottom: 50px;
+
+    }
+
+  }
+
+
+  &__option {
+    height: 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+
+    &Content {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0 10px;
+      height: 100%;
+      width: 100%;
+      border: none;
+      background-color: #ffffff;
+      text-align: start;
+      outline: none;
+
+      &:hover {
+        background-color: #dddddd;
+      }
+    }
+
+  }
+}
